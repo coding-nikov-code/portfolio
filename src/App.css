@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
+  background-color: #e3e3e3;
+  position: relative;
+}
+
+.pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background: radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #e5e5f7 20%, #e5e5f7 80%, transparent 80%, transparent) 10px 10px, linear-gradient(#444cf7 0.8px, transparent 0.8px) 0 -0.4px, linear-gradient(90deg, #444cf7 0.8px, #e5e5f7 0.8px) -0.4px 0;
+  background-size: 20px 20px, 20px 20px, 10px 10px, 10px 10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main {
+  padding-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.video-row {
+  position: relative;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.works-section {
+  padding: 0 48px 24px;
+}
+
+.works-title {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.video-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  color: #000000;
+  padding: 0;
+  margin-left: 64px;
+  transition: font-size 0.2s, font-style 0.2s;
+}
+
+.video-btn:hover {
+  opacity: 0.6;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.video-player {
+  position: absolute;
+  left: 50vw;
+  right: -48px;
+  top: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 10;
 }
 
-.App-link {
-  color: #61dafb;
+.video-player iframe {
+  width: 560px;
+  height: 315px;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.audio-row {
+  position: relative;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.audio-player {
+  position: absolute;
+  left: 50vw;
+  right: -48px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.audio-player iframe {
+  width: 350px;
+  height: 550px;
+  border: none;
+}
+
+.image-player {
+  position: absolute;
+  left: 50vw;
+  right: -48px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.image-player img {
+  width: 560px;
+  height: 315px;
+  object-fit: cover;
 }

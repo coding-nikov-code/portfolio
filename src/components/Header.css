@@ -1,0 +1,9 @@
+.header {
+  padding: 40px 48px 24px;
+}
+
+.header__name {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}

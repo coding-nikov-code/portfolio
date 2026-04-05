@@ -1,0 +1,62 @@
+.cv {
+  padding: 48px;
+}
+
+.cv__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+}
+
+.cv__content {
+  max-width: 720px;
+}
+
+.cv__group {
+  margin-bottom: 32px;
+}
+
+.cv__group-title {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.cv__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv__item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.cv__year {
+  flex-shrink: 0;
+  width: 48px;
+  color: #999999;
+}
+
+.cv__text {
+  color: #000000;
+}
+
+.cv__insta-link {
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: #000000;
+  text-decoration: none;
+}
+
+.cv__insta-link:hover {
+  opacity: 0.6;
+}

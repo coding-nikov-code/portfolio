@@ -1,0 +1,20 @@
+.portfolio {
+  padding: 48px;
+}
+
+.portfolio__content {
+  max-width: 720px;
+}
+
+.portfolio__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio__item {
+  font-size: 16px;
+
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
