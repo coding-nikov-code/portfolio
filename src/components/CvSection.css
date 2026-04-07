@@ -60,3 +60,26 @@
 .cv__insta-link:hover {
   opacity: 0.6;
 }
+
+/* ========== Responsive: Tablet ========== */
+@media (max-width: 1023px) and (min-width: 481px) {
+  .cv {
+    padding: 24px;
+  }
+}
+
+/* ========== Responsive: Phone ========== */
+@media (max-width: 480px) {
+  .cv {
+    padding: 16px;
+  }
+
+  .cv__item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cv__year {
+    width: auto;
+  }
+}

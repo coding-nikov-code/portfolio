@@ -7,3 +7,21 @@
   font-weight: 700;
   letter-spacing: -0.5px;
 }
+
+/* ========== Responsive: Tablet ========== */
+@media (max-width: 1023px) and (min-width: 481px) {
+  .header {
+    padding: 32px 24px 16px;
+  }
+}
+
+/* ========== Responsive: Phone ========== */
+@media (max-width: 480px) {
+  .header {
+    padding: 24px 16px 12px;
+  }
+
+  .header__name {
+    font-size: 24px;
+  }
+}

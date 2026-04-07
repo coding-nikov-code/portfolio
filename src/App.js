@@ -4,9 +4,11 @@ import Header from './components/Header';
 import CvSection from './components/CvSection';
 import ProximityText from './components/ProximityText';
 import datschaImg from './data/pics/12X12/Datscha-at-Freibad-20251129-0330.jpg';
+import { useMediaQuery } from './hooks/useMediaQuery';
 
 const TRAIL_RADIUS = 80;
 const TRAIL_STRENGTH = 0.65;
+const DESKTOP_BREAKPOINT = '(min-width: 1024px)';
 
 function App() {
   const [showVideo, setShowVideo] = useState(false);
@@ -14,6 +16,7 @@ function App() {
   const [showPhoto, setShowPhoto] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
   const canvasRef = useRef(null);
+  const isDesktop = useMediaQuery(DESKTOP_BREAKPOINT);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,85 +57,109 @@ function App() {
     };
   }, []);
 
+  const renderVideoMedia = () => (
+    <div className="media-player media-player--video">
+      <iframe
+        src="https://www.youtube.com/embed/63JrTOA2km0?autoplay=1"
+        title="I Remember House"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+
+  const renderPhotoMedia = () => (
+    <div className="media-player media-player--image">
+      <img src={datschaImg} alt="Datscha at Freibad" />
+    </div>
+  );
+
+  const renderAlbumMedia = () => (
+    <div className="media-player media-player--audio">
+      <iframe
+        src="https://bandcamp.com/EmbeddedPlayer/album=3264033015/size=large/bgcol=ffffff/linkcol=000000/tracklist=true/transparent=true/"
+        title="Noise is an Ocean by Mischa Nikov"
+        seamless
+      ></iframe>
+    </div>
+  );
+
+  const renderBubbleMedia = () => (
+    <div className="media-player media-player--video">
+      <iframe
+        src="https://www.youtube.com/embed/1eywk7JZR2c?autoplay=1"
+        title="Bubble Gum Tattoos Girl"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+
   return (
     <div className="app">
       <div className="pattern"></div>
       <canvas ref={canvasRef} className="cursor-trail" />
       <Header />
       <main className="main">
-        <div className="works-section">
-          <h2 className="works-title"><ProximityText>Works</ProximityText></h2>
-          <div className="video-row">
-            <button
-              className="video-btn"
-              onClick={() => { setShowVideo(!showVideo); setShowAlbum(false); setShowPhoto(false); setShowBubble(false); }}
-            >
-              <ProximityText>I Remember House</ProximityText>
-            </button>
-            {showVideo && (
-              <div className="video-player">
-                <iframe
-                  src="https://www.youtube.com/embed/63JrTOA2km0?autoplay=1"
-                  title="I Remember House"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
-          </div>
-          <div className="audio-row">
-            <button
-              className="video-btn"
-              onClick={() => { setShowPhoto(!showPhoto); setShowVideo(false); setShowAlbum(false); setShowBubble(false); }}
-            >
+        <div className="layout">
+          {/* Left area: text and buttons */}
+          <div className="layout__left">
+            <div className="works-section">
+              <h2 className="works-title"><ProximityText>Works</ProximityText></h2>
 
-              <ProximityText>12X12 CLU8</ProximityText>
-            </button>
-            {showPhoto && (
-              <div className="image-player">
-                <img src={datschaImg} alt="Datscha at Freibad" />
+              <div className="work-item">
+                <button
+                  className="work-item__btn"
+                  onClick={() => { setShowVideo(!showVideo); setShowAlbum(false); setShowPhoto(false); setShowBubble(false); }}
+                >
+                  <ProximityText>I Remember House</ProximityText>
+                </button>
+                {!isDesktop && showVideo && renderVideoMedia()}
               </div>
-            )}
-          </div>
-          <div className="audio-row">
-            <button
-              className="video-btn"
-              onClick={() => { setShowAlbum(!showAlbum); setShowVideo(false); setShowPhoto(false); setShowBubble(false); }}
-            >
 
+              <div className="work-item">
+                <button
+                  className="work-item__btn"
+                  onClick={() => { setShowPhoto(!showPhoto); setShowVideo(false); setShowAlbum(false); setShowBubble(false); }}
+                >
+                  <ProximityText>12X12 CLU8</ProximityText>
+                </button>
+                {!isDesktop && showPhoto && renderPhotoMedia()}
+              </div>
 
-              <ProximityText>Noise is an Ocean</ProximityText>
-            </button>
-            {showAlbum && (
-              <div className="audio-player">
-                <iframe
-                  src="https://bandcamp.com/EmbeddedPlayer/album=3264033015/size=large/bgcol=ffffff/linkcol=000000/tracklist=true/transparent=true/"
-                  title="Noise is an Ocean by Mischa Nikov"
-                  seamless
-                ></iframe>
+              <div className="work-item">
+                <button
+                  className="work-item__btn"
+                  onClick={() => { setShowAlbum(!showAlbum); setShowVideo(false); setShowPhoto(false); setShowBubble(false); }}
+                >
+                  <ProximityText>Noise is an Ocean</ProximityText>
+                </button>
+                {!isDesktop && showAlbum && renderAlbumMedia()}
               </div>
-            )}
-          </div>
-          <div className="video-row">
-            <button
-              className="video-btn"
-              onClick={() => { setShowBubble(!showBubble); setShowVideo(false); setShowAlbum(false); setShowPhoto(false); }}
-            >
-              <ProximityText>Bubble Gum Tattoos Girl</ProximityText>
-            </button>
-            {showBubble && (
-              <div className="video-player">
-                <iframe
-                  src="https://www.youtube.com/embed/1eywk7JZR2c?autoplay=1"
-                  title="Bubble Gum Tattoos Girl"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                ></iframe>
+
+              <div className="work-item">
+                <button
+                  className="work-item__btn"
+                  onClick={() => { setShowBubble(!showBubble); setShowVideo(false); setShowAlbum(false); setShowPhoto(false); }}
+                >
+                  <ProximityText>Bubble Gum Tattoos Girl</ProximityText>
+                </button>
+                {!isDesktop && showBubble && renderBubbleMedia()}
               </div>
-            )}
+            </div>
+            <CvSection />
           </div>
+
+          {/* Right area: media panel (desktop only) */}
+          {isDesktop && (
+            <div className="layout__right">
+              {showVideo && renderVideoMedia()}
+              {showPhoto && renderPhotoMedia()}
+              {showAlbum && renderAlbumMedia()}
+              {showBubble && renderBubbleMedia()}
+            </div>
+          )}
         </div>
-        <CvSection />
       </main>
     </div>
   );
