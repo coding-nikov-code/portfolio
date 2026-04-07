@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.793e0c1e.css",
+    "main.js": "/portfolio/static/js/main.33d36433.js",
+    "static/media/Datscha-at-Freibad-20251129-0330.jpg": "/portfolio/static/media/Datscha-at-Freibad-20251129-0330.db70724ebdc6bb7ca5ad.jpg",
+    "index.html": "/portfolio/index.html",
+    "main.793e0c1e.css.map": "/portfolio/static/css/main.793e0c1e.css.map",
+    "main.33d36433.js.map": "/portfolio/static/js/main.33d36433.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.793e0c1e.css",
+    "static/js/main.33d36433.js"
+  ]
+}
